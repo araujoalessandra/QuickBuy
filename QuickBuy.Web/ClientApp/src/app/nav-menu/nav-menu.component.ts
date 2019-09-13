@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../modelo/usuario';
+import { UsuarioServico } from '../servicos/usuario/usuario.servico';
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,7 +11,7 @@ import { Usuario } from '../modelo/usuario';
 export class NavMenuComponent {
   isExpanded = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private usuarioServico: UsuarioServico) {
 
   }
   collapse() {

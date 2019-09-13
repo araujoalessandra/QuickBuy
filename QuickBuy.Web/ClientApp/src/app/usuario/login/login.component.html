@@ -47,6 +47,10 @@
             type="submit" (click)="entrar()">Entrar
     </button>
 
+    <div class="alert alert-danger" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+
   </form>
   <img [src]="enderecoImagem" [title]="titulo"/>
   <p></p>
