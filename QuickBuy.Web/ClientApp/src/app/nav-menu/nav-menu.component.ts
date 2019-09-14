@@ -24,15 +24,14 @@ export class NavMenuComponent {
 
   public usuarioLogado(): boolean {
 
-    var usuarioLogado = sessionStorage.getItem("usuario-autenticado");
-    if (usuarioLogado == "1") {
+    if (this.usuarioServico.usuario_autenticado()) {
       return true;
     }
     return false;
   }
 
   sair() {
-    sessionStorage.setItem("usuario-autenticado", "");
+    this.usuarioServico.limpar_sessao();
     this.router.navigate(['/']);
   }
 }

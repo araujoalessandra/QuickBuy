@@ -14,29 +14,27 @@
            [(ngModel)]="usuario.email"
            #email="ngModel"
            email
-           required
-           />
+           required />
     <div class="invalid-feedback mb-1" *ngIf="email.invalid && (email.dirty || email.touched)">
-    <div *ngIf="email.errors.required">
-      Email deve ser preenchido
-    </div>
-    <div *ngIf="email.errors.email">
-      Email no formato inválido
-    </div>
+      <div *ngIf="email.errors.required">
+        Email deve ser preenchido
+      </div>
+      <div *ngIf="email.errors.email">
+        Email no formato inválido
+      </div>
     </div>
 
     <label for="inputSenha" class="sr-only">Senha</label>
     <input type="password" id="inputSenha"
            name="senha" placeholder="Senha"
            class="form-control mb-1"
-            [ngClass]="{
+           [ngClass]="{
            'is-invalid':senha.invalid && (senha.dirty || senha.touched),
            'is-valid':senha.valid && (senha.dirty || senha.touched)
            }"
            [(ngModel)]="usuario.senha"
            #senha="ngModel"
-           required
-           />
+           required />
     <div class="invalid-feedback mb-1" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
       <div *ngIf="senha.errors.required">
         Senha deve ser informada
@@ -44,8 +42,12 @@
     </div>
 
     <button class="btn btn-primary btn-block"
-            type="submit" (click)="entrar()">Entrar
+            type="submit" (click)="entrar();" [disabled]="ativar_spinner">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+      Entrar
     </button>
+
+    
 
     <div class="alert alert-danger" *ngIf="mensagem">
       {{mensagem}}
